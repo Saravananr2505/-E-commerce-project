@@ -36,7 +36,7 @@ steps:
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'Sonar-code-analyser'
-    organization: 'saravanan-sonarcloud'
+    organization: 'saravanansaravanan'
     scannerMode: 'Other'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
