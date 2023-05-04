@@ -33,3 +33,12 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Sonar-code-analyser'
+    organization: 'saravanan-sonarcloud'
+    scannerMode: 'Other'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
