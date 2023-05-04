@@ -16,6 +16,13 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-TestSuite.xml'
+    searchFolder: '$(System.DefaultWorkingDirectory)\target\surefire-reports\old'
+    publishRunAttachments: true
+
 - task: CopyFiles@2
   inputs:
     Contents: '**/*jar'
