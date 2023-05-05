@@ -38,8 +38,6 @@ steps:
     SonarCloud: 'Sonar-code-analyser'
     organization: 'saravanansaravanan'
     scannerMode: 'Other'
-    extraProperties: 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Azure-devops'
-
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:
