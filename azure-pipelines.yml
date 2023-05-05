@@ -13,11 +13,7 @@ steps:
   inputs:
     SonarQube: 'SonarQube_azuredevops'
     scannerMode: 'Other'
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '11'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
+
 - task: Maven@4
   inputs:
     mavenPomFile: 'JtProject/pom.xml'
