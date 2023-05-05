@@ -20,6 +20,7 @@ steps:
         -Dsonar.login=d75737d586419b9f53f58ea8fbb32c7d3f91ec0b
 
 
+
 - task: Maven@4
   inputs:
     mavenPomFile: 'JtProject/pom.xml'
@@ -30,8 +31,7 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
+    sonarQubeRunAnalysis: false
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
