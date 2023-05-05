@@ -12,7 +12,9 @@ steps:
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'SonarQube_azuredevops'
-    scannerMode: 'Other'
+    scannerMode: 'MSBuild'
+    projectKey: 'd75737d586419b9f53f58ea8fbb32c7d3f91ec0b'
+    projectName: 'Azure-devops'
 
 - task: Maven@4
   inputs:
