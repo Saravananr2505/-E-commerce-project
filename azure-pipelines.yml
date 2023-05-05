@@ -9,31 +9,28 @@ trigger:
 pool: Saravanan-test-agent
 
 steps:
-- task: SonarCloudPrepare@1
+- task: SonarQubePrepare@5
   inputs:
-    SonarCloud: 'Sonar-code-analyser'
-    organization: 'saravanansaravanan'
+    SonarQube: 'SonarQube_azuredevops'
     scannerMode: 'Other'
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
 - task: Maven@4
   inputs:
     mavenPomFile: 'JtProject/pom.xml'
+    goals: 'install sonar:sonar'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-    checkStyleRunAnalysis: true
-    pmdRunAnalysis: true
-    findBugsRunAnalysis: true
-    spotBugsRunAnalysis: true
+    sonarQubeRunAnalysis: false
 
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
