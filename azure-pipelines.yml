@@ -19,7 +19,7 @@ steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'JtProject/pom.xml'
-    goals: 'install sonar:sonar'
+    goals: 'clean install'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
