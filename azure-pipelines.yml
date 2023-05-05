@@ -12,9 +12,12 @@ steps:
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'SonarQube_azuredevops'
-    scannerMode: 'MSBuild'
-    projectKey: 'd75737d586419b9f53f58ea8fbb32c7d3f91ec0b'
-    projectName: 'Azure-devops'
+    scannerMode: 'Other'
+    extraProperties: |
+      mvn sonar:sonar \
+        -Dsonar.projectKey=Azure-devops \
+        -Dsonar.host.url=http://20.16.7.24 \
+        -Dsonar.login=d75737d586419b9f53f58ea8fbb32c7d3f91ec0b
 
 - task: Maven@4
   inputs:
